@@ -1,0 +1,21 @@
+{
+  "name": "CreatShare-YP",
+  "version": "1.0.0",
+  "description": "畅校园黄页",
+  "main": "main.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "droiz",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-sass": "^2.0.1",
+    "gulp-server-livereload": "^1.4.0",
+    "gulp-sourcemaps": "^1.5.2"
+  },
+  "devDependencies": {
+    "gulp-babel": "^5.3.0",
+    "gulp-rename": "^1.2.2"
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+    <head>
+        <title>西邮黄页</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta http-equiv="Cache-Control" content="no-siteapp">
+        <meta name="author" content="droiz, zhengrenzhe@creatshare.com">
+        <meta name="robots" content="index, follow">
+        <link rel="stylesheet" href="pubilc/css/style.css">
+    </head>
+    <body>
+
+        <header>
+            <input type="text" maxlength="20" class="search" autofocus="autofocus" placeholder="输入关键词拼音首字母以快速匹配，例如：lgy">
+            <div class="tab">
+                <li id='item1' class="borderbottom">订外卖</li>
+                <li id='item2'>查固话</li>
+            </div>
+        </header>
+
+        <div id="search-result" class="hide">
+            <p><span id="search-key"></span> 的匹配结果</p>
+            <div id="search-res"></div>
+            <div class="hr"></div>
+        </div>
+        <div class="fix">
+        <div class="wrap" id="wrap">
+            <div id="takeout"></div>
+            <div id="main" class="hide"></div>
+        </div>
+        </div>
+        <footer>Copyright© 2012-2015 CreatShare All Rights Reserved</footer>
+
+        <script id="item-tp" type="template">
+            {{for(var x=0; x<data.length; x++){}}
+                <div class="card">
+                    <h3 class="card-title">{{=data[x].title}}</h3>
+                    <table class="card-items" data-index="{{=data[x].index}}" data-title={{=data[x].title}}>
+                        {{for(var i=0; i<data[x].items.length; i++){}}
+                        <tr data-index="{{=data[x].items[i].index}}" data-from={{=data[x].title}}>
+                            <td class="card-item-label">{{=data[x].items[i].label}}</td>
+                            <td class="card-item-value">{{=data[x].items[i].value}}</td>
+                        </tr>
+                        {{}}}
+                    </table>
+                </div>
+            {{}}}
+        </script>
+        <script id="item-to" type="template">
+            {{for(var x=0; x<datas.length; x++){}}
+                <div class="card">
+                    <h3 class="card-title">{{=datas[x].title}}</h3>
+                    <table class="card-items" datas-index="{{=datas[x].index}}" data-title={{=datas[x].title}}>
+                        {{for(var i=0; i<datas[x].items.length; i++){}}
+                        <tr datas-index="{{=datas[x].items[i].index}}" data-from={{=datas[x].title}}>
+                            <td class="card-item-label">{{=datas[x].items[i].label}}</td>
+                            <td class="card-item-value">{{=datas[x].items[i].value}}</td>
+                        </tr>
+                        {{}}}
+                    </table>
+                </div>
+            {{}}}
+        </script>
+        <script id="searched-tp" type="template">
+            <div class="card">
+                {{if(JSON.stringify(searched)==='{}'){}}
+                    并没有任何东西哦
+                {{}}}
+                {{for(var i in searched){}}
+                    <h3 class="card-title">{{=i}}</h3>
+                    <table class="card-items card-searched">
+                        {{for(var x=0; x<searched[i].length; x++){}}
+                            {{=searched[i][x]}}
+                        {{}}}
+                    </table>
+                {{}}}
+            </div>
+        </script>
+
+        <script src="pubilc/js/zepto.min.js"></script>
+        <script src="pubilc/js/doT.min.js"></script>
+        <script src="pubilc/js/yp.es5.js"></script>
+        <script src="pubilc/js/yp.js"></script>
+
+    </body>
+</html>
